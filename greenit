@@ -53,6 +53,19 @@ yargs(hideBin(process.argv))
         choices:Object.keys(sizes),
         default: "desktop"
       })
+      .option('influxdb', {
+        type: 'boolean',
+        description: 'Write result in influxdb'
+      })
+      .option('influxdb_hostname', {
+        type: 'string'
+      })
+      .option('influxdb_login', {
+        type: 'string'
+      })
+      .option('influxdb_password', {
+        type: 'string'
+      })
   }, (argv) => {
       require("./commands/analyse.js")(argv)
   })

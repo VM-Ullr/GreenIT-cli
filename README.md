@@ -98,6 +98,13 @@ Pour utiliser l'outil, un fichier YAML listant toutes les URL à analyser est n�
 ## Flags généraux
 
 - `--ci` : Log de façon traditionnelle pour assurer la compatibilité avec les environements CI.
+- `--influxdb` : Active l'écriture des données dans une base influxdb
+- `--influxdb_hostname` : URL de la base influxdb
+- `--influxdb_login` : Login de la base influxdb
+- `--influxdb_password` : Password de la base influxdb
+
+## Grafana
+Un exemple de dashboard grafana est situé dans `/grafana/dashboard`.
 
 # Usage
 

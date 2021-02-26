@@ -102,9 +102,10 @@ Pour utiliser l'outil, un fichier YAML listant toutes les URL à analyser est n�
 - `--influxdb_hostname` : URL de la base influxdb
 - `--influxdb_login` : Login de la base influxdb
 - `--influxdb_password` : Password de la base influxdb
+- `--influxdb_database` : Nom de la base de données dans influxdb
 
 ## Grafana
-Un exemple de dashboard grafana est situé dans `/grafana/dashboard`.
+Un exemple de dashboard grafana est situé dans `/grafana/dashboards`.
 
 # Usage
 

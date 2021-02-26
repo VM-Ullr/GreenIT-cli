@@ -66,6 +66,9 @@ yargs(hideBin(process.argv))
       .option('influxdb_password', {
         type: 'string'
       })
+      .option('influxdb_database', {
+        type: 'string'
+      })
   }, (argv) => {
       require("./commands/analyse.js")(argv)
   })

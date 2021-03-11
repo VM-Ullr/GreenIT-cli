@@ -58,7 +58,7 @@ async function analyse_core(options) {
     let reportObj = await create_global_report(reports, options);
     await create_XLSX_report(reportObj, options)
     if(options.influxdb) {
-        await writeToInflux(options, fileList)
+        await writeToInflux(reports, options)
     }
 }
 

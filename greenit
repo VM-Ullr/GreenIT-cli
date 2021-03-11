@@ -53,22 +53,6 @@ yargs(hideBin(process.argv))
         choices:Object.keys(sizes),
         default: "desktop"
       })
-      .option('influxdb', {
-        type: 'boolean',
-        description: 'Write result in influxdb'
-      })
-      .option('influxdb_hostname', {
-        type: 'string'
-      })
-      .option('influxdb_login', {
-        type: 'string'
-      })
-      .option('influxdb_password', {
-        type: 'string'
-      })
-      .option('influxdb_database', {
-        type: 'string'
-      })
   }, (argv) => {
       require("./commands/analyse.js")(argv)
   })
@@ -87,6 +71,22 @@ yargs(hideBin(process.argv))
   .option('ci', {
     type: 'boolean',
     description: 'Disable progress bar to work with GitLab CI'
+  })
+  .option('influxdb', {
+    type: 'boolean',
+    description: 'Write result in influxdb'
+  })
+  .option('influxdb_hostname', {
+    type: 'string'
+  })
+  .option('influxdb_login', {
+    type: 'string'
+  })
+  .option('influxdb_password', {
+    type: 'string'
+  })
+  .option('influxdb_database', {
+    type: 'string'
   })
   .strict()
   .demandCommand()

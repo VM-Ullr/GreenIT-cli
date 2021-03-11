@@ -1,7 +1,8 @@
 const {InfluxDB, Point, HttpError} = require('@influxdata/influxdb-client')
 const fs = require('fs');
+const ProgressBar = require('progress');
 
-async function write(options, fileList) {
+async function write(reports, options) {
 
     if (!options.influxdb_hostname) {
         throw `You must define an InfluxDB hostname.`
@@ -20,13 +21,25 @@ async function write(options, fileList) {
     const org = 'ecoindex'
     const bucket = options.influxdb_database;
 
-    console.log(`influxdb is enable (${url}, write content to ${bucket})`);
+    //initialise progress bar
+    let progressBar;
+    if (!options.ci){
+        progressBar = new ProgressBar(' Push to InfluxDB     [:bar] :percent     Remaining: :etas     Time: :elapseds', {
+            complete: '=',
+            incomplete: ' ',
+            width: 40,
+            total: reports.length+2
+        });
+        progressBar.tick()
+    } else {
+        console.log('Push report to InfluxDB ...');
+    }
 
     const writeApi = new InfluxDB({url, timeout: 15})
         .getWriteApi(org, bucket, 'ms')
     writeApi.useDefaultTags({location: url})
 
-    fileList.forEach((file) => {
+    reports.forEach((file) => {
         let obj = JSON.parse(fs.readFileSync(file.path).toString());
         let hostname = obj.url.split('/')[2]
         writePoint(writeApi, hostname, 'url', obj.url)
@@ -46,12 +59,13 @@ async function write(options, fileList) {
         for (let key in obj.bestPractices) {
             writePoint(writeApi, hostname, key, obj.bestPractices[key].complianceLevel || 'A')
         }
+        if (progressBar) progressBar.tick()
     })
 
     writeApi
         .close()
         .then(() => {
-            console.log('Writing to influx is finished')
+            if (progressBar) progressBar.tick()
         })
         .catch(e => {
             console.log('Writing to influx failed\n')

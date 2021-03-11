@@ -16,7 +16,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": 13,
-  "iteration": 1615384041272,
+  "iteration": 1615448545823,
   "links": [],
   "panels": [
     {
@@ -116,7 +116,7 @@
           "mappings": [
             {
               "from": "",
-              "id": 1,
+              "id": 2,
               "text": "",
               "to": "",
               "type": 1
@@ -128,17 +128,10 @@
               {
                 "color": "green",
                 "value": null
-              },
-              {
-                "color": "#EAB839",
-                "value": ""
-              },
-              {
-                "color": "red",
-                "value": 80
               }
             ]
-          }
+          },
+          "unit": "string"
         },
         "overrides": []
       },
@@ -433,7 +426,31 @@
             "properties": [
               {
                 "id": "custom.width",
-                "value": 366
+                "value": 267
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Value"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 59
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Time"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 143
               }
             ]
           }
@@ -2203,8 +2220,8 @@
         "allValue": null,
         "current": {
           "selected": true,
-          "text": "https://www.nike.com/fr/",
-          "value": "https://www.nike.com/fr/"
+          "text": "https://collectif.greenit.fr/outils.html",
+          "value": "https://collectif.greenit.fr/outils.html"
         },
         "datasource": null,
         "definition": "SELECT url FROM \"eco_index\"  ",
@@ -2222,7 +2239,7 @@
             "value": "https://collectif.greenit.fr/"
           },
           {
-            "selected": false,
+            "selected": true,
             "text": "https://collectif.greenit.fr/outils.html",
             "value": "https://collectif.greenit.fr/outils.html"
           },
@@ -2237,7 +2254,7 @@
             "value": "https://www.amazon.fr/"
           },
           {
-            "selected": true,
+            "selected": false,
             "text": "https://www.nike.com/fr/",
             "value": "https://www.nike.com/fr/"
           },
@@ -2261,12 +2278,12 @@
     ]
   },
   "time": {
-    "from": "now-6h",
+    "from": "now-24h",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "",
   "title": "EcoIndex",
   "uid": "kLmqUTyGk",
-  "version": 38
+  "version": 39
 }

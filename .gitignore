@@ -5,4 +5,5 @@ dist/
 results/
 results_test/
 *.xlsx
+.idea/
 *.yaml
